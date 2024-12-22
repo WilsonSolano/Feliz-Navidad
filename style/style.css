@@ -788,11 +788,12 @@ z-index: -1;
 
 /* .gift-box caja de regalo*/
 .regalo {
-width: 100%;
-margin: 0 auto;
-cursor: pointer;
-position: absolute;
-bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    z-index: 1; /* Agregamos z-index para asegurar que esté sobre otros elementos */
 }
 .caja, .tapa {
 background:
@@ -902,4 +903,104 @@ opacity: 1;
 50% {
 transform: rotate(30deg);
 }
+}
+
+.row {
+    position: absolute; /* Cambiamos de margin-top a position absolute */
+    bottom: 50px; /* Distancia desde el fondo */
+    left: 50%;
+    transform: translateX(-50%); /* Centra horizontalmente */
+    width: 100%;
+    margin-top: 0 !important; /* Removemos el margin-top anterior */
+}
+
+/* card-n */
+.card-n {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    perspective: 1400px;
+    top: 0;
+    transition: all 1s;
+}
+
+/* left-card-n */
+.left-card-n {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transform-origin: 0 0;
+}
+
+.left-card-n img {
+    width: 100%;
+}
+
+.left-card-n .card-n-front,
+.left-card-n .card-n-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+}
+
+.left-card-n .card-n-back {
+    background: #f4f4f4;
+   /*  transform: rotateY(180deg); */
+    transform: rotateX(180deg);
+
+}
+
+/* open-n card-n */
+.card-n.open-n .left-card-n {
+    /* transform: rotateY(-180deg); */
+    transform: rotateX(180deg)
+}
+
+.card-n.open-n {
+    top: 220px;
+    z-index: 2; /* Aseguramos que la tarjeta abierta esté por encima */
+}
+/* right card-n */
+.right-card-n {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    text-align: center;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    color: #444;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Eje z: va hacia adelante */
+}
+
+.right-card-n h2 {
+    color: crimson;
+    font-family: 'Handlee', sans-serif !important;
+
+}
+
+#regalo {
+    width: 10px;
+    height: auto;
+}
+.contenedor {
+    display: flex;
+    justify-content: flex-start; /* Cambia de center a flex-start para alinear a la izquierda */
+    align-items: flex-start; /* Cambia de center a flex-start para alinear arriba */
+    height: 100vh;
+    padding-top: 20px; /* Opcional: agrega un poco de espacio en la parte superior */
+    padding-left: 20px; /* Opcional: agrega un poco de espacio a la izquierda */
 }
