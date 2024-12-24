@@ -29,7 +29,7 @@ function createSnowflake() {
 
 // Crear copos de nieve
 for (let i = 0; i < TOTAL_SNOWFLAKES; i++) {
-    setTimeout(createSnowflake, i * 2000);
+    setTimeout(createSnowflake, i * 1000);
 }
 
 
