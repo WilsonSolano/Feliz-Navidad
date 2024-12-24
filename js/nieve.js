@@ -1,4 +1,5 @@
 const TOTAL_SNOWFLAKES = 10;
+const snowflakesContainer = document.querySelector('.snowflakes');
 
 function createSnowflake() {
     const snowflake = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -9,15 +10,15 @@ function createSnowflake() {
 
     // Posición y animación aleatorias
     snowflake.style.left = Math.random() * 100 + "vw";
-    snowflake.style.animationDuration = Math.random() * 5 + 5 + "s"; 
-    snowflake.style.animationDelay = Math.random() * 5 + "s"; 
+    snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
+    snowflake.style.animationDelay = Math.random() * 5 + "s";
 
     // SVG del copo de nieve
     snowflake.innerHTML = `
         <path fill="white" d="M12 2L13 8H17L14 10L15 16L12 14L9 16L10 10L7 8H11L12 2Z"/>
     `;
 
-    document.body.appendChild(snowflake);
+    snowflakesContainer.appendChild(snowflake);
 
     // Eliminar después de que termine la animación
     snowflake.addEventListener("animationend", () => {
@@ -31,16 +32,6 @@ for (let i = 0; i < TOTAL_SNOWFLAKES; i++) {
     setTimeout(createSnowflake, i * 200);
 }
 
-for (let i = 0; i < TOTAL_SNOWFLAKES; i++) {
-  setTimeout(createSnowflake, i * 200);
-}
-
-// Función para crear copos adicionales periódicamente
-setInterval(() => {
-  if (document.querySelectorAll(".snowflake").length < TOTAL_SNOWFLAKES) {
-    createSnowflake();
-  }
-}, 2000);
 
 const card = document.querySelector('.card-n');
 
