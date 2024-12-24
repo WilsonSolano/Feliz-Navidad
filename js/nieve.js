@@ -66,3 +66,42 @@ card.addEventListener('click', function() {
     // al hacer click, agrega clase css open-n al card-n
     card.classList.toggle('open-n')
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const audio = document.getElementById('navidad');
+  const playBtn = document.getElementById('playBtn');
+  const seekBar = document.getElementById('seekBar');
+  const currentTime = document.getElementById('currentTime');
+  const duration = document.getElementById('duration');
+
+  playBtn.addEventListener('click', () => {
+      if(audio.paused) {
+          audio.play();
+          playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      } else {
+          audio.pause();
+          playBtn.innerHTML = '<i class="fas fa-play"></i>';
+      }
+  });
+
+  audio.addEventListener('timeupdate', () => {
+      seekBar.value = (audio.currentTime / audio.duration) * 100;
+      currentTime.textContent = formatTime(audio.currentTime);
+  });
+
+  audio.addEventListener('loadedmetadata', () => {
+      duration.textContent = formatTime(audio.duration);
+      seekBar.value = 0;
+  });
+
+  seekBar.addEventListener('change', () => {
+      audio.currentTime = (seekBar.value * audio.duration) / 100;
+  });
+
+  function formatTime(seconds) {
+      let minutes = Math.floor(seconds / 60);
+      seconds = Math.floor(seconds % 60);
+      return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  }
+});

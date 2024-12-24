@@ -998,9 +998,78 @@ transform: rotate(30deg);
 }
 .contenedor {
     display: flex;
-    justify-content: flex-start; /* Cambia de center a flex-start para alinear a la izquierda */
-    align-items: flex-start; /* Cambia de center a flex-start para alinear arriba */
+    justify-content: flex-end; /* Alinea a la derecha */
+    align-items: flex-start; /* Mantiene en la parte superior */
     height: 100vh;
-    padding-top: 20px; /* Opcional: agrega un poco de espacio en la parte superior */
-    padding-left: 20px; /* Opcional: agrega un poco de espacio a la izquierda */
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+/* Para pantallas medianas (tablets y más pequeñas) */
+@media screen and (max-width: 768px) {
+    .contenedor {
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Mueve hacia abajo */
+        padding-bottom: 20px; /* Espacio desde el fondo */
+    }
+    card-n.open-n {
+        top: -100px;
+    }
+}
+
+/* Para pantallas muy pequeñas (móviles) */
+@media screen and (max-width: 576px) {
+    .contenedor {
+        margin-top: 0px;
+        padding-bottom: 20px; /* Más espacio en el fondo para móviles */
+    }
+    .card-n.open-n {
+        top: 65px;
+    }
+}
+
+.audio-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.control-btn {
+    background: #c41e3a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+}
+
+#seekBar {
+    flex-grow: 1;
+    height: 5px;
+    cursor: pointer;
+}
+
+span {
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
 }

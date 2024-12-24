@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Handlee&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Felix Navidad</title>
   </head>
   <body>
@@ -156,25 +157,35 @@
         <div class="card-n">
           <div class="left-card-n">
             <div class="card-n-front">
-              <!-- aqui va la imagen frontal de la tarjeta -->
               <img src="navidad.jpg" alt="navidad" />
             </div>
 
             <div class="card-n-back">
-              <!-- aqui es la parte trasera, en blanco -->
-              <img id="regalos" src="regalos.jpg" alt="regalos" />
+              <img id="regalos" src="cortazar.jpg" alt="regalos" />
             </div>
           </div>
 
           <div class="right-card-n">
-            <!-- aqui va el mensaje -->
-            <h2>Feliz Navidad</h2>
-            <p>y próspero año nuevo</p>
-            <p>Les desea Albania</p>
-          </div>
+            <h2>¡Feliz Navidad!</h2>
+            <div class="festive-footer">
+                <p class="small">🎄 Paz, Amor y Felicidad 🎄</p>
+            </div>
+        </div>
         </div>
       </div>
     </div>
+    <div class="audio-player">
+      <audio id="navidad" loop>
+          <source src="Christmas Lights.mp3" type="audio/mp3">
+      </audio>
+      <div class="player-controls">
+          <button id="playBtn" class="control-btn">
+              <i class="fas fa-play"></i>
+          </button>
+          <input type="range" id="seekBar" value="0">
+          <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+      </div>
+   </div>
   </body>
   <script src="js/nieve.js"></script>
 </html>
