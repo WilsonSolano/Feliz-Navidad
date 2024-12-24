@@ -1,48 +1,35 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 body {
-  height: 100vh;
-  background: linear-gradient(to bottom, #000428, #004e92);
-  overflow: hidden;
-  position: relative;
+    height: 100vh;
+    background: linear-gradient(to bottom, #000428, #004e92);
+    overflow: hidden;
+    position: relative;
 }
-
 .snowflake {
-  position: absolute;
-  top: -5%;
-  width: 20px;
-  height: 20px;
-  opacity: 0.9;
-  animation: fall linear 1;
-  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
-  will-change: transform, opacity;
+    position: absolute;
+    top: -5%;
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    animation: fall linear 1;
+    will-change: transform, opacity;
 }
 
-@keyframes fall {
-  0% {
-    transform: translateX(0) translateY(-10vh) rotate(0deg) scale(0.8);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.9;
-  }
-  45% {
-    transform: translateX(15px) translateY(45vh) rotate(180deg) scale(1.1);
-  }
-  55% {
-    transform: translateX(-15px) translateY(55vh) rotate(270deg) scale(1);
-  }
-  90% {
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateX(0) translateY(110vh) rotate(360deg) scale(0.8);
-    opacity: 0;
-  }
+ @keyframes fall {
+    0% {
+        transform: translateX(0) translateY(-10vh) rotate(0deg);
+    }
+    50% {
+        transform: translateX(20px) translateY(50vh) rotate(180deg);
+    }
+    100% {
+        transform: translateX(-20px) translateY(110vh) rotate(360deg);
+        opacity: 0.5;
+    }
 }
 
 @keyframes twinkle {
